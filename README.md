@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an example of asymmetric cryptography in Python. It will allow you to encrypt files using the public key of the intended recipient, allowing only them to decrypt them.
+This is an example of asymmetric cryptography in Python. It will allow you to encrypt a file using the public key of the intended recipient, allowing only them to decrypt it by using their private key.
 
 ## Usage
 
