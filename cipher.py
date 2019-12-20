@@ -79,7 +79,7 @@ def encrypt(file):
         )
     )
 
-    writeFile = file + '.encrypted'
+    writeFile = file.replace('.txt', '.encrypted')
 
     f = open(writeFile, 'wb')
     f.write(encrypted)
@@ -109,7 +109,7 @@ def decrypt(file):
         )
     )
 
-    writeFile = file.replace('.encrypted', '')
+    writeFile = file.replace('.encrypted', '.txt')
 
     f = open(writeFile, 'wb')
     f.write(decrypted)
@@ -130,10 +130,16 @@ def selectionMenu():
 
     response = int(input('\nChoose an option (1-3): '))
     if response == 1:
-        file = input('\nInput name of file to encrypt: ')
+        file = input('\nInput name of .txt file to encrypt: ')
+        if file.split('.')[-1] != 'txt':
+            print('File type not supported, choose a .txt file')
+            selectionMenu()
         encrypt(file)
     elif response == 2:
         file = input('\nInput name of file to decrypt: ')
+        if file.split('.')[-1] != 'encrypted':
+            print('File type not supported, choose a .encrypted file')
+            selectionMenu()
         decrypt(file)
     elif response == 3:
         keyGen()
